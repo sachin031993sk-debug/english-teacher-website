@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"> 
+
+
+</head>
+
+<body>
+
+    <h1>
+        Teacher Dashboard
+    </h1>
+
+    <div class="container">
+
+        <h2>Notes</h2>
+        <form action="/upload_note"
+      method="POST"
+      enctype="multipart/form-data">
+
+    <input type="file"
+           name="note">
+
+    <button type="submit">
+        Upload PDF
+    </button>
+
+</form>
+
+        <ul>
+
+            {% for note in notes %}
+
+           <li>
+
+    <a href="/uploads/{{ note }}"
+       target="_blank">
+
+       {{ note }}
+
+    </a>
+
+</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <br>
+
+    <div class="container">
+
+        <h2>Student Marks</h2>
+
+        <ul>
+
+            {% for s in students %}
+
+            <li>
+                {{ s[1] }} - {{ s[3] }}
+
+<br><br>
+
+<a href="/mark_attendance/{{ s[0] }}/Present">
+
+    <button>
+        Present
+    </button>
+
+</a>
+
+<a href="/mark_attendance/{{ s[0] }}/Absent">
+
+    <button>
+        Absent
+    </button>
+
+</a>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+<div class="container">
+
+    <h2>Add Student</h2>
+
+    <form action="/add_student" method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Student Name">
+
+        <input type="text"
+               name="sid"
+               placeholder="Student ID">
+
+        <input type="text"
+               name="roll"
+               placeholder="Roll Number">
+
+        <input type="text"
+               name="marks"
+               placeholder="Marks">
+
+        <button type="submit">
+            Add Student
+        </button>
+
+    </form>
+
+</div>
+<div class="container">
+
+    <h2>Create Test Question</h2>
+
+    <form action="/add_question" method="POST">
+
+        <input type="text"
+               name="question"
+               placeholder="Question">
+
+        <input type="text"
+               name="op1"
+               placeholder="Option 1">
+
+        <input type="text"
+               name="op2"
+               placeholder="Option 2">
+
+        <input type="text"
+               name="op3"
+               placeholder="Option 3">
+
+        <input type="text"
+               name="op4"
+               placeholder="Option 4">
+
+        <input type="text"
+               name="answer"
+               placeholder="Correct Answer">
+
+        <button type="submit">
+            Add Question
+        </button>
+
+    </form>
+
+</div>
+</body>
+
+</html>

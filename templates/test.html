@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Online Test</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <h1>Online Test</h1>
+
+    <div class="container">
+
+        <form action="/submit_test" method="POST">
+
+            {% for q in questions %}
+
+            <h3>
+                {{ q.question }}
+            </h3>
+
+            {% for option in q.options %}
+
+            <input type="radio"
+                  name="q{{ loop.index0 }}"
+                   value="{{ option }}">
+
+            {{ option }}
+
+            <br><br>
+
+            {% endfor %}
+
+            {% endfor %}
+
+            <button type="submit">
+                Submit Test
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+</head>
+
+<body>
+
+    <h1>
+        Welcome {{ student.name }}
+    </h1>
+
+    <h2>
+        Your Marks: {{ student.marks }}
+    </h2>
+
+    <h2>Notes</h2>
+
+    <ul>
+
+        {% for note in notes %}
+
+        <li>
+
+    <a href="/uploads/{{ note }}"
+       target="_blank">
+
+       {{ note }}
+
+    </a>
+
+</li>
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>
