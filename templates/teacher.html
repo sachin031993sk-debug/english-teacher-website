@@ -1,160 +1,65 @@
 <!DOCTYPE html>
-<html>
+            <ul>
 
-<head>
+                {% for s in students %}
 
-    <link rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"> 
+                <li class="note-card">
 
+                    <b>{{ s[1] }}</b>
 
-</head>
+                    <br>
 
-<body>
+                    Marks: {{ s[3] }}
 
-    <h1>
-        Teacher Dashboard
-    </h1>
+                    <br><br>
 
-    <div class="container">
+                    <a href="/mark_attendance/{{ s[0] }}/Present">
+                        <button>
+                            Present
+                        </button>
+                    </a>
 
-        <h2>Notes</h2>
-        <form action="/upload_note"
-      method="POST"
-      enctype="multipart/form-data">
+                    <a href="/mark_attendance/{{ s[0] }}/Absent">
+                        <button>
+                            Absent
+                        </button>
+                    </a>
 
-    <input type="file"
-           name="note">
+                </li>
 
-    <button type="submit">
-        Upload PDF
-    </button>
+                {% endfor %}
 
-</form>
+            </ul>
 
-        <ul>
+        </div>
 
-            {% for note in notes %}
+        <div class="card">
 
-           <li>
+            <h2>Create Test Question</h2>
 
-    <a href="/uploads/{{ note }}"
-       target="_blank">
+            <form action="/add_question" method="POST">
 
-       {{ note }}
+                <input type="text" name="question" placeholder="Question">
 
-    </a>
+                <input type="text" name="op1" placeholder="Option 1">
 
-</li>
+                <input type="text" name="op2" placeholder="Option 2">
 
-            {% endfor %}
+                <input type="text" name="op3" placeholder="Option 3">
 
-        </ul>
+                <input type="text" name="op4" placeholder="Option 4">
 
-    </div>
+                <input type="text" name="answer" placeholder="Correct Answer">
 
-    <br>
+                <button type="submit">
+                    Add Question
+                </button>
 
-    <div class="container">
+            </form>
 
-        <h2>Student Marks</h2>
-
-        <ul>
-
-            {% for s in students %}
-
-            <li>
-                {{ s[1] }} - {{ s[3] }}
-
-<br><br>
-
-<a href="/mark_attendance/{{ s[0] }}/Present">
-
-    <button>
-        Present
-    </button>
-
-</a>
-
-<a href="/mark_attendance/{{ s[0] }}/Absent">
-
-    <button>
-        Absent
-    </button>
-
-</a>
-            </li>
-
-            {% endfor %}
-
-        </ul>
+        </div>
 
     </div>
-<div class="container">
 
-    <h2>Add Student</h2>
-
-    <form action="/add_student" method="POST">
-
-        <input type="text"
-               name="name"
-               placeholder="Student Name">
-
-        <input type="text"
-               name="sid"
-               placeholder="Student ID">
-
-        <input type="text"
-               name="roll"
-               placeholder="Roll Number">
-
-        <input type="text"
-               name="marks"
-               placeholder="Marks">
-
-        <button type="submit">
-            Add Student
-        </button>
-
-    </form>
-
-</div>
-<div class="container">
-
-    <h2>Create Test Question</h2>
-
-    <form action="/add_question" method="POST">
-
-        <input type="text"
-               name="question"
-               placeholder="Question">
-
-        <input type="text"
-               name="op1"
-               placeholder="Option 1">
-
-        <input type="text"
-               name="op2"
-               placeholder="Option 2">
-
-        <input type="text"
-               name="op3"
-               placeholder="Option 3">
-
-        <input type="text"
-               name="op4"
-               placeholder="Option 4">
-
-        <input type="text"
-               name="answer"
-               placeholder="Correct Answer">
-
-        <button type="submit">
-            Add Question
-        </button>
-
-    </form>
-
-</div>
 </body>
-
 </html>

@@ -2,33 +2,41 @@
 <html>
 
 <head>
+
     <title>Student Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-    <h1>Student Login</h1>
+    <div class="topbar">
+        Student Login
+    </div>
 
-    <form method="POST">
+    <div class="container">
 
-        <input type="text"
-               name="student_id"
-               placeholder="Student ID">
+        <form method="POST">
 
-        <br><br>
+            <input type="text"
+                   name="student_id"
+                   placeholder="Student ID">
 
-        <input type="text"
-               name="roll"
-               placeholder="Roll Number">
+            <input type="text"
+                   name="roll"
+                   placeholder="Class Roll No">
 
-        <br><br>
+            <button type="submit">
+                Login
+            </button>
 
-        <button type="submit">
-            Login
-        </button>
+        </form>
 
-    </form>
+    </div>
 
 </body>
-
 </html>

@@ -2,34 +2,41 @@
 <html>
 
 <head>
-   <link rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Teacher Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-    <h1>Teacher Login</h1>
+    <div class="topbar">
+        Teacher Login
+    </div>
 
-    <form method="POST">
+    <div class="container">
 
-        <input type="text"
-               name="username"
-               placeholder="Username">
+        <form method="POST">
 
-        <br><br>
+            <input type="text"
+                   name="username"
+                   placeholder="Username">
 
-        <input type="password"
-               name="password"
-               placeholder="Password">
+            <input type="password"
+                   name="password"
+                   placeholder="Password">
 
-        <br><br>
+            <button type="submit">
+                Login
+            </button>
 
-        <button type="submit">
-            Login
-        </button>
+        </form>
 
-    </form>
+    </div>
 
 </body>
-
 </html>

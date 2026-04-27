@@ -1,41 +1,63 @@
 <!DOCTYPE html>
-<html>
 
-<head>
     <title>Student Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-    <h1>
-        Welcome {{ student.name }}
-    </h1>
+    <div class="topbar">
+        Student Dashboard
+    </div>
 
-    <h2>
-        Your Marks: {{ student.marks }}
-    </h2>
+    <div class="container">
 
-    <h2>Notes</h2>
+        <div class="card">
 
-    <ul>
+            <h2>
+                Welcome {{ student.name }}
+            </h2>
 
-        {% for note in notes %}
+            <h3>
+                Marks: {{ student.marks }}
+            </h3>
 
-        <li>
+            <h3>
+                Attendance: {{ attendance_percent }}%
+            </h3>
 
-    <a href="/uploads/{{ note }}"
-       target="_blank">
+        </div>
 
-       {{ note }}
+        <div class="card">
 
-    </a>
+            <h2>Notes</h2>
 
-</li>
+            {% for note in notes %}
 
-        {% endfor %}
+            <div class="note-card">
 
-    </ul>
+                <a href="/uploads/{{ note }}">
+                    {{ note }}
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <a href="/test">
+            <button>
+                Open Online Test
+            </button>
+        </a>
+
+    </div>
 
 </body>
-
 </html>
