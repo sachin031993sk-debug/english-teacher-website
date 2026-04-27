@@ -2,24 +2,41 @@
 <html>
 
 <head>
+
     <title>Vikas Sir Classes</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-    <h1>Vikas Sir Classes</h1>
+    <div class="container">
 
-    <br>
+        <h1>Vikas Sir Classes</h1>
 
-    <a href="/teacher">
-        Teacher Login
-    </a>
+        <h2>
+            English Learning Portal
+        </h2>
 
-    <br><br>
+        <br>
 
-    <a href="/student">
-        Student Login
-    </a>
+        <a href="/teacher">
+            <button>
+                Teacher Login
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/student">
+            <button>
+                Student Login
+            </button>
+        </a>
+
+    </div>
 
 </body>
 
